@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KJUBIX SCALES — Agencja Social & Paid Ads</title>
+  <meta name="description" content="NexaMotion — kompleksowe prowadzenie social media (organic) oraz kampanie płatne na Facebooku i TikToku. Strategia, kreacja, optymalizacja." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7c5cff; /* violet */
+      --accent-2:#00d4ff; /* cyan */
+      --glass: rgba(255,255,255,0.04);
+      --success:#22c55e;
+      --danger:#ef4444;
+      --max-width:1200px;
+      --radius:16px;
+      font-synthesis: none;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg),#071022 140%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(11,17,28,0.6), rgba(11,17,28,0.25));backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021026;box-shadow:0 6px 18px rgba(124,92,255,0.18);
+    }
+    .brand h1{font-size:16px;margin:0}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav li{font-weight:600;color:var(--muted)}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 16px;border-radius:12px;font-weight:700;color:#001022}
+    .menu-btn{display:none}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .hero-left h2{font-size:32px;margin:0 0 12px}
+    .lead{color:var(--muted);max-width:56ch}
+    .hero-cta{display:flex;gap:12px;margin-top:20px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;background:var(--card);border:1px solid rgba(255,255,255,0.03)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001022;border:none}
+
+    .hero-right{background:linear-gradient(180deg, rgba(124,92,255,0.08), rgba(0,212,255,0.04));padding:20px;border-radius:18px;border:1px solid rgba(255,255,255,0.03)}
+    .stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat{background:var(--glass);padding:14px;border-radius:12px;min-width:110px}
+    .stat h3{margin:0;font-size:18px}
+
+    /* SERVICES */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 24px rgba(2,8,23,0.6)}
+    .card h4{margin:8px 0 6px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;background:rgba(255,255,255,0.03);color:var(--muted);font-size:13px}
+
+    /* PROCESS */
+    .process{display:flex;flex-direction:column;gap:14px;margin:44px 0}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .step{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);text-align:center}
+
+    /* PORTFOLIO */
+    .portfolio{margin:36px 0}
+    .carousel{display:flex;gap:14px;overflow:hidden}
+    .slide{min-width:320px;flex:0 0 320px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.04)}
+    .slide img{width:100%;height:200px;object-fit:cover;display:block}
+    .slide .meta{padding:12px}
+
+    /* PRICING */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0}
+    .price{padding:20px;border-radius:14px;text-align:center}
+    .price h3{margin-top:0}
+
+    /* CONTACT */
+    .contact{display:grid;grid-template-columns:1fr 360px;gap:18px;margin:36px 0}
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit}
+
+    footer{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* Animations & reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:all 700ms cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .nav ul{display:none}
+      .menu-btn{display:block;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:10px}
+      .hero-right{order:2}
+      .hero-left{order:1}
+      .brand h1{font-size:14px}
+      .logo{width:40px;height:40px}
+      .slide{min-width:280px;flex:0 0 280px}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .grid{display:grid;gap:12px}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">[ks]</div>
+        <div>
+          <h1>KJUBIX SCALES</h1>
+          <div class="small muted">Agencja Social & Paid Ads</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#uslugi">Usługi</a></li>
+          <li><a href="#proces">Proces</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#cennik">Cennik</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <button class="menu-btn" aria-expanded="false">☰</button>
+        <a class="cta" href="#kontakt">Umów konsultację</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h2 class="reveal">Skalujemy marki dzięki inteligentnym strategiom social media i kampaniom płatnym.</h2>
+        <p class="lead reveal">KJUBIX SCALES projektuje i wdraża zintegrowane rozwiązania: organiczne działania w social media (kreacja treści, community management, wzrost zaangażowania) oraz skuteczne kampanie płatne na Facebooku i TikToku — od strategii po analitykę i optymalizację.</p>
+
+        <div class="hero-cta reveal">
+          <a class="btn primary" href="#kontakt">Darmowa konsultacja</a>
+          <a class="btn" href="#portfolio">Zobacz case studies</a>
+        </div>
+
+        <div class="reveal" style="margin-top:18px">
+          <div class="small muted">Zaufali nam:</div>
+          <div class="stats" style="margin-top:8px">
+            <div class="stat"><h3>+120%</h3><div class="small muted">średni wzrost zaangażowania</div></div>
+            <div class="stat"><h3>3 dni</h3><div class="small muted">czas pierwszych wyników kampanii</div></div>
+            <div class="stat"><h3>50+</h3><div class="small muted">prowadzone marki</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right reveal">
+        <h3>Co robimy</h3>
+        <p class="small muted">Działamy dwutorowo: budujemy marki organicznie i skalujemy konwersje poprzez precyzyjne kampanie.</p>
+        <div style="margin-top:16px">
+          <div class="card">
+            <div class="pill">Organic — Social Media</div>
+            <h4>Strategia treści & Kreacja</h4>
+            <p class="small muted">Plan publikacji, reels, grafiki, moderacja i community building.</p>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <div class="pill">Paid — Facebook & TikTok</div>
+            <h4>Kampanie i optymalizacja</h4>
+            <p class="small muted">Targetowanie, A/B testy, skalowanie ROAS, raporty i dashboardy.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="uslugi">
+      <h2 class="reveal">Nasze usługi</h2>
+      <div class="services">
+        <div class="card reveal">
+          <div class="pill">Organic</div>
+          <h4>Prowadzenie Social Media</h4>
+          <p class="muted small">Kompleksowa obsługa profili: strategia treści, publikacje, kreacja wideo (shorts/reels), moderacja, kampanie influencerskie.</p>
+          <ul class="small muted" style="margin-top:10px">
+            <li>Analiza odbiorców i konkurencji</li>
+            <li>Plan redakcyjny i harmonogram</li>
+            <li>Kreacja i montaż wideo</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <div class="pill">Paid</div>
+          <h4>Kampanie Facebook & TikTok</h4>
+          <p class="muted small">Strategia reklamowa, targetowanie, konfiguracja pikseli, automatyzacja, optymalizacja konwersji i skalowanie efektywnych kreacji.</p>
+          <ul class="small muted" style="margin-top:10px">
+            <li>Ustawienia pikseli i konwersji</li>
+            <li>Optymalizacja ROAS i CPA</li>
+            <li>Raporty i dashboardy KPI</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <div class="pill">Growth</div>
+          <h4>Strategia wzrostu</h4>
+          <p class="muted small">Połączenie działań organicznych i płatnych w celu budowy długoterminowego wzrostu i obniżenia kosztów pozyskania klienta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="proces" class="process">
+      <h2 class="reveal">Nasz proces</h2>
+      <div class="steps">
+        <div class="step reveal"><strong>1.</strong><div class="small muted">Brief & analiza</div></div>
+        <div class="step reveal"><strong>2.</strong><div class="small muted">Strategia i kreacja</div></div>
+        <div class="step reveal"><strong>3.</strong><div class="small muted">Uruchomienie kampanii</div></div>
+        <div class="step reveal"><strong>4.</strong><div class="small muted">Optymalizacja i raport</div></div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+      <h2 class="reveal">Wybrane realizacje</h2>
+      <div class="carousel" id="carousel">
+        <div class="slide card reveal">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60" alt="Case 1">
+          <div class="meta"><strong>Fashion Boost</strong><div class="small muted">Wzrost sprzedaży 78% w 2 miesiące (Facebook + TikTok)</div></div>
+        </div>
+        <div class="slide card reveal">
+          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=60" alt="Case 2">
+          <div class="meta"><strong>EcoBrand</strong><div class="small muted">Zwiększenie zaangażowania z 0.7% do 3.9%</div></div>
+        </div>
+        <div class="slide card reveal">
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=60" alt="Case 3">
+          <div class="meta"><strong>FoodieLab</strong><div class="small muted">Kampanie lokalne zyskują 60% taniej CPA</div></div>
+        </div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn" id="prev">‹</button>
+        <button class="btn" id="next">›</button>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="cennik">
+      <h2 class="reveal">Pakiety</h2>
+      <div class="pricing">
+        <div class="price card reveal">
+          <h3>Starter</h3>
+          <p class="small muted">Dla małych profili i mniejszych marek</p>
+          <div style="font-size:20px;font-weight:800;margin:12px 0">350 zł / mies.</div>
+          <ul class="small muted" style="text-align:left">
+            <li>Skalowanie organiczne</li>
+            <li>Podstawowe raporty</li>
+            <li>Wsparcie e-mail</li>
+          </ul>
+        </div>
+
+        <div class="price card reveal">
+          <h3>Pro</h3>
+          <p class="small muted">Dla sklepów i marek</p>
+          <div style="font-size:20px;font-weight:800;margin:12px 0">999 zł / mies.</div>
+          <ul class="small muted" style="text-align:left">
+            <li>Codzienna publikacja</li>
+            <li>1 kampania płatna (FB + TikTok)</li>
+            <li>Skalowanie budżetu</li>
+          </ul>
+        </div>
+
+        <div class="price card reveal">
+          <h3>Konsultacje</h3>
+          <p class="small muted">Optymalizacja i skalowanie</p>
+          <div style="font-size:20px;font-weight:800;margin:12px 0">99 zł / mies.</div>
+          <ul class="small muted" style="text-align:left">
+            <li>Rozmowy 1 na 1 co tydzień</li>
+            <li>Strategia growth</li>
+            <li>Wiele kampanii & kreatywów</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="kontakt" class="contact">
+      <div class="card reveal">
+        <h2>Porozmawiajmy o Twoim projekcie</h2>
+        <p class="small muted">Wypełnij formularz, a nasz specjalista skontaktuje się w ciągu 24 godzin.</p>
+        <a href="https://form.typeform.com/to/X5h0oLp5">Kliknij tutaj, aby przejść do formularza</a>
+      </div>
+
+      <aside class="card reveal">
+        <h3>Kontakt</h3>
+        <div style="margin-top:12px"><strong>Tel:</strong> +48 602 545 517</div>
+        <div style="margin-top:6px"><strong>E-mail:</strong> kjubixscales@gmail.com</div>
+        <div style="margin-top:12px" class="small muted">Godziny pracy: 9:00–17:00 (Pon–Pt)</div>
+      </aside>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div class="small muted">© kjubix scales 2025 — Wszystkie prawa zastrzeżone</div>
+        <div class="small muted">Polityka prywatności · Regulamin</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Simple reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } })
+    },{threshold:0.12});
+    reveals.forEach(r=>io.observe(r));
+
+    // Simple carousel
+    const carousel = document.getElementById('carousel');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    if(prev && next && carousel){
+      prev.addEventListener('click', ()=>{ carousel.scrollBy({left:-340,behavior:'smooth'}); });
+      next.addEventListener('click', ()=>{ carousel.scrollBy({left:340,behavior:'smooth'}); });
+    }
+
+    // Mobile menu (basic)
+    const menuBtn = document.querySelector('.menu-btn');
+    const navUL = document.querySelector('nav ul');
+    if(menuBtn){
+      menuBtn.addEventListener('click', ()=>{
+        const open = navUL.style.display === 'flex';
+        navUL.style.display = open ? 'none' : 'flex';
+        menuBtn.setAttribute('aria-expanded', !open);
+      });
+    }
+
+    // Form handling (no backend) — simulate send
+    const form = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMsg');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      if(!name.value.trim() || !email.value.trim()){
+        formMsg.textContent = 'Proszę uzupełnić pola wymagane.'; formMsg.style.color = 'var(--danger)'; return;
+      }
+      // simulate success
+      formMsg.style.color = 'var(--success)';
+      formMsg.textContent = 'Dziękujemy! Twoje zapytanie zostało wysłane. Skontaktujemy się w ciągu 24 godzin.';
+      form.reset();
+    });
+    
+    // Small parallax hero background effect
+    const hero = document.querySelector('.hero');
+    if(hero){
+      document.addEventListener('mousemove',(e)=>{
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.transform = `translate3d(${x*6}px, ${y*6}px, 0)`;
+      });
+    }
+
+    // Accessibility: focus visible outline
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Tab') document.body.classList.add('show-focus');
+    });
+  </script>
+
+</body>
+</html>
